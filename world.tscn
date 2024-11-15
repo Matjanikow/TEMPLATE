@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctx3ofg3fxuyp"]
+
+[ext_resource type="Texture2D" uid="uid://b0l5hlgtolo2h" path="res://istockphoto-1139914566-612x612.jpg" id="1_ys62a"]
+[ext_resource type="PackedScene" uid="uid://bpwbg2nqgvxnl" path="res://player.tscn" id="2_kn1t5"]
+[ext_resource type="PackedScene" uid="uid://b4llcp6l6k60e" path="res://puerta.tscn" id="4_om5xk"]
+[ext_resource type="PackedScene" uid="uid://vccovovgd353" path="res://pinche.tscn" id="5_iyjn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63v5q"]
+size = Vector2(2272, 213)
+
+[node name="World" type="Node"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ys62a")
+
+[node name="Player" parent="." instance=ExtResource("2_kn1t5")]
+
+[node name="Puerta" parent="." instance=ExtResource("4_om5xk")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(416, 528)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(560, 0)
+shape = SubResource("RectangleShape2D_63v5q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(1712, -960, 1696, 104, -576, 112, -552, -928)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="HUD"]
+anchors_preset = -1
+anchor_right = 0.159722
+anchor_bottom = 0.123457
+text = "PAUSA"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD"]
+anchors_preset = -1
+anchor_left = 0.368056
+anchor_right = 0.604167
+anchor_bottom = 0.0864198
+text = "APURATE SALVA A LA PRINCESA"
+metadata/_edit_use_anchors_ = true
+
+[node name="Pinche" parent="." instance=ExtResource("5_iyjn3")]
+position = Vector2(720, 64)

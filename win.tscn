@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvqt7yi1c7xxy"]
+
+[ext_resource type="Script" path="res://win.gd" id="1_ba862"]
+
+[node name="WIN" type="Node"]
+script = ExtResource("1_ba862")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.989878, 0.504345, 0.695975, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.277778
+anchor_top = 0.432099
+anchor_right = 0.669271
+anchor_bottom = 0.643519
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "GANASTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.340278
+anchor_top = 0.691358
+anchor_right = 0.611111
+anchor_bottom = 0.888889
+text = "Volver a jugar
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

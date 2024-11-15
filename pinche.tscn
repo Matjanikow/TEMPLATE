@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://vccovovgd353"]
+
+[ext_resource type="Script" path="res://pinche.gd" id="1_6hr48"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4cfb"]
+size = Vector2(112, 104)
+
+[node name="Pinche" type="Area2D"]
+position = Vector2(1424, 320)
+collision_layer = 4
+script = ExtResource("1_6hr48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_j4cfb")
+debug_color = Color(0.960784, 0, 0, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_pinche_body_entered"]
